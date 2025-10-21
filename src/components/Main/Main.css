@@ -18,7 +18,7 @@
 
 .main__hook {
   height: 576px;
-  background-image: url("../../images/main-pic.jpg");
+
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
