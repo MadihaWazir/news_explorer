@@ -5,10 +5,13 @@ function About() {
   return (
     <section className="about">
       <div className="about__content">
-        <img src="" alt="" className="about__image" />
+        <div className="about__image-container">
+          <img src="" alt="Author" className="about__image" />
+        </div>
+
         <div className="about__text-container">
-          <h1 className="about__title">About the Author</h1>
-          <p className="about__description">
+          <h2 className="about__title">About the Author</h2>
+          <p className="about__text">
             Hi! I’m Madiha Wazir, a Software Engineering graduate from
             TripleTen. I’m passionate about creating dynamic, responsive, and
             user-friendly web applications that make everyday tasks simpler and
