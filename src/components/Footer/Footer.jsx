@@ -20,23 +20,26 @@ function Footer() {
               href="https://tripleten.com"
               className="footer__link"
               target="_blank"
-              rel="noreferrer"
+              aria-label="TripleTen"
+              rel="noopener noreferrer"
             >
               TripleTen
             </a>
           </nav>
           <nav className="footer__social-icons">
             <a
-              href="https://github.com"
+              href="https://github.com/MadihaWazir"
               className="footer__social-icon-link footer__social-icon-github"
               target="_blank"
-              rel="noreferrer"
+              aria-label="GitHub"
+              rel="noopener noreferrer"
             ></a>
             <a
-              href="https://facebook.com"
-              className="footer__social-icon-link footer__social-icon-facebook"
+              href="https://linkedin.com/in/madiha-wazir"
+              className="footer__social-icon-link footer__social-icon-linkedin"
               target="_blank"
-              rel="noreferrer"
+              aria-label="LinkedIn"
+              rel="noopener noreferrer"
             ></a>
           </nav>
         </div>
