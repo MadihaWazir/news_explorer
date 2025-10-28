@@ -1,6 +1,5 @@
-import React from "react";
 import "./ModalWithForm.css";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 
 function ModalWithForm({
   title,
@@ -22,9 +21,14 @@ function ModalWithForm({
 
       if (isOpen) {
         document.addEventListener("keydown", handleEscape);
+        document.body.classList.add("modal-open");
+      } else {
+        document.body.classList.remove("modal-open");
       }
+
       return () => {
         document.removeEventListener("keydown", handleEscape);
+        document.body.classList.remove("modal-open");
       };
     };
   }, [isOpen, onClose]);

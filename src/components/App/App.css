@@ -1,8 +1,15 @@
 #root {
-  max-width: 1280px;
+  margin: 0 !important;
+  padding: 0 !important;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+}
+
+.body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .logo {
@@ -16,6 +23,40 @@
 }
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+.news-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  flex-direction: row;
+  padding-left: 104px;
+  padding-right: 104px;
+  max-width: 100%;
+  padding-top: 190px;
+  padding-bottom: 208px;
+}
+
+.results-section__loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 282px;
+  flex-direction: column;
+  margin-bottom: 80px;
+  background-color: #f5f6f7;
+}
+
+.results-section__text {
+  font-family: "Roboto, Arial, sans-serif";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: #6c707a;
+  margin-top: 24px;
+  letter-spacing: 0px;
+  text-align: center;
 }
 
 @keyframes logo-spin {

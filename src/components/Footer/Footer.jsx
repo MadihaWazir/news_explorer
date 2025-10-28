@@ -35,7 +35,7 @@ function Footer() {
               rel="noopener noreferrer"
             ></a>
             <a
-              href="https://linkedin.com/in/madiha-wazir"
+              href="https://linkedin.com/in/madiha-wazir-390292337"
               className="footer__social-icon-link footer__social-icon-linkedin"
               target="_blank"
               aria-label="LinkedIn"

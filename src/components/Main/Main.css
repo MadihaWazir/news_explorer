@@ -1,11 +1,8 @@
 .main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  position: relative;
   width: 100%;
-  margin-bottom: 0;
-  padding-bottom: 0;
-  overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 .main__content {
@@ -13,12 +10,13 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-width: 90%;
+  max-width: 608px;
+  padding-top: 80px;
 }
 
 .main__hook {
   height: 576px;
-
+  background-image: url(../../images/main-pic.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

@@ -4,18 +4,27 @@ export function getUser() {
 }
 
 export function setUser(user) {
-  localStorage.setItem("currentUser", JSON.stringify(user));
+  if (user) {
+    localStorage.setItem("currentUser", JSON.stringify(user));
+  } else {
+    localStorage.removeItem("currentUser");
+  }
+}
+
+export function getRegisteredUsers() {
+  return JSON.parse(localStorage.getItem("registeredUsers")) || {};
+}
+
+export function setRegisteredUsers(users) {
+  localStorage.setItem("registeredUsers", JSON.stringify(users));
 }
 
 export function getSavedArticles() {
-  const data = localStorage.getItem("savedArticles");
-  return data ? JSON.parse(data) : [];
+  return JSON.parse(localStorage.getItem("savedArticles")) || [];
 }
 
 export function saveArticles(article) {
-  const current = getSavedArticles();
-  const updated = [...current, article];
-  localStorage.setItem("savedArticles", JSON.stringify(updated));
+  localStorage.setItem("savedArticles", JSON.stringify(article));
 }
 
 export function removeArticle(url) {

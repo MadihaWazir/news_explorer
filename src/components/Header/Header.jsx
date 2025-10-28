@@ -14,7 +14,10 @@ function Header({
   const isSavedNewsPage = location.pathname === "/saved-news";
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const handleToggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+  const handleToggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   const CloseMobileMenu = () => setIsMobileMenuOpen(false);
 
   const handleLogoutAndCloseMenu = () => {
@@ -48,26 +51,36 @@ function Header({
             isMobileMenuOpen ? "Close mobile menu" : "Open mobile menu"
           }
         >
-          <span className="header__menu-icon_line" />
-          <span className="header__menu-icon_line" />
+          <span className="header__menu-icon_line"></span>
+          <span className="header__menu-icon_line"></span>
         </button>
       )}
-      {isMobileMenuOpen && (
+      {isMobileMenuOpen && !isAnyModalOpen && (
         <div className="header__mobile-overlay" onClick={CloseMobileMenu}>
-          <nav
+          <div
             className="navigation_mobile-open"
             onClick={(e) => e.stopPropagation()}
           >
-            <Navigation
-              isloggedIn={isloggedIn}
-              currentUser={currentUser}
-              onLogout={handleLogoutAndCloseMenu}
-              onSignInClick={handleSignInAndCloseMenu}
-              isMobile={true}
-              handleCloseMobileMenu={CloseMobileMenu}
-              isSavedNewsPage={isSavedNewsPage}
-            />
-          </nav>
+            <div className="navigation__mobile-header">
+              <span className="navigation__mobile_title"></span>
+              <button
+                className="navigation__mobile_close"
+                onClick={CloseMobileMenu}
+                aria-label="Close mobile menu"
+              />
+            </div>
+            <nav className="navigation__mobile-menu">
+              <Navigation
+                isloggedIn={isloggedIn}
+                currentUser={currentUser}
+                onLogout={handleLogoutAndCloseMenu}
+                onSignInClick={handleSignInAndCloseMenu}
+                isMobile={true}
+                handleCloseMobileMenu={CloseMobileMenu}
+                isSavedNewsPage={isSavedNewsPage}
+              />
+            </nav>
+          </div>
         </div>
       )}
       <nav className="navigation">

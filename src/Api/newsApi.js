@@ -4,12 +4,12 @@ const BASE_URL = "https://newsapi.org/v2/everything";
 export const searchNews = async (query) => {
   if (!query.trim()) return [];
 
-  const fromData = new Date();
-  fromData.setDate(fromData.getDate() - 7); // last 7 days
+  const fromDate = new Date();
+  fromDate.setDate(fromDate.getDate() - 7); // last 7 days
 
-  const month = String(fromData.getMonth() + 1).padStart(2, "0");
-  const day = String(fromData.getDate()).padStart(2, "0");
-  const year = fromData.getFullYear();
+  const month = String(fromDate.getMonth() + 1).padStart(2, "0");
+  const day = String(fromDate.getDate()).padStart(2, "0");
+  const year = fromDate.getFullYear();
   const from = `${year}-${month}-${day}`;
 
   const url = `${BASE_URL}?q=${encodeURIComponent(

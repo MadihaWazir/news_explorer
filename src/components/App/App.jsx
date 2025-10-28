@@ -5,7 +5,7 @@ import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
-import NewsCard from "../NewsCard/NewsCard";
+import RegistrationSuccessModal from "../RegistrationSuccessModal/RegistrationSuccessModal";
 import About from "../About/About";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
@@ -17,6 +17,8 @@ import NewsCardList from "../NewsCardList/NewsCardList";
 import {
   getUser,
   setUser,
+  getRegisteredUsers,
+  setRegisteredUsers,
   getSavedArticles,
   saveArticles,
 } from "../../utils/localStorage";
@@ -25,9 +27,11 @@ import { searchNews } from "../../Api/newsApi";
 
 function App() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [isSuccessOpen, setIsSuccessOpen] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
 
   const [currentUser, setCurrentUser] = useState(getUser());
+
   const [isLoading, setIsLoading] = useState(false);
   const [articles, setArticles] = useState([]);
   const [savedArticles, setSavedArticles] = useState(getSavedArticles());
@@ -35,29 +39,72 @@ function App() {
   const [hasSearched, setHasSearched] = useState(false);
 
   useEffect(() => {
-    setUser(currentUser);
-  }, [currentUser]);
+    const savedUser = getUser();
+    if (savedUser) {
+      setCurrentUser(savedUser);
+    }
+  }, []);
+
+  useEffect(() => {
+    saveArticles(savedArticles);
+  }, [savedArticles]);
 
   function handleLogin(data) {
-    setCurrentUser({ name: data.name || "User" });
+    const storedUsers = getRegisteredUsers();
+    const userData = storedUsers[data.email];
+
+    if (!userData) {
+      alert("No user found. Please register first.");
+      return;
+    }
+
+    const loggedInUser = {
+      name: userData.name,
+      email: userData.email,
+    };
+
+    setCurrentUser(loggedInUser);
+    setUser(loggedInUser);
     setIsLoginOpen(false);
   }
 
   function handleRegister(data) {
-    setCurrentUser({ name: data.name || "User" });
+    const storedUsers = getRegisteredUsers();
+
+    if (storedUsers[data.email]) {
+      alert("User already exists. Please log in.");
+      return;
+    }
+
+    storedUsers[data.email] = { name: data.name, email: data.email };
+    setRegisteredUsers(storedUsers);
+
+    const newUser = { name: data.name, email: data.email };
+    setCurrentUser(newUser);
+    setUser(newUser);
+
     setIsRegisterOpen(false);
+    setIsSuccessOpen(true);
   }
 
   function handleLogout() {
     setCurrentUser(null);
+    setUser(null);
+
+    setHasSearched(false);
+    setArticles([]);
+    setSearchQuery("");
   }
 
   function handleSaveArticle(article, isSaved) {
     console.log("handleSaveArticle called with:", { article, isSaved });
 
-    if (isSaved) {
-      console.log("Article is already saved.");
+    if (!currentUser) {
+      setIsLoginOpen(true);
+      return;
+    }
 
+    if (isSaved) {
       const articleWithKeyword = {
         ...article,
         keyword: searchTerm || "General",
@@ -65,14 +112,14 @@ function App() {
 
       const updated = [...getSavedArticles(), articleWithKeyword];
       setSavedArticles(updated);
+      saveArticles(updated);
       console.log("Updated saved article:", updated);
     } else {
       // Optionally handle unsaving an article
       console.log("Article is not saved yet.");
-      const updated = getSavedArticles().filter(
-        (a) => a.title !== article.title
-      );
+      const updated = getSavedArticles.filter((a) => a.title !== article.title);
       setSavedArticles(updated);
+      saveArticles(updated);
     }
   }
 
@@ -102,6 +149,7 @@ function App() {
         onLogout={handleLogout}
         onSignInClick={() => setIsLoginOpen(true)}
         onSignUpClick={() => setIsRegisterOpen(true)}
+        isAnyModalOpen={isLoginOpen || isRegisterOpen || isSuccessOpen}
       />
       <Routes>
         <Route
@@ -123,6 +171,8 @@ function App() {
                       articles={articles}
                       isLoggedIn={!!currentUser}
                       onSaveArticle={handleSaveArticle}
+                      isSavedNewsPage={false}
+                      savedArticles={savedArticles}
                     />
                   )}
                 </section>
@@ -132,6 +182,7 @@ function App() {
             </>
           }
         />
+
         <Route
           path="/saved-news"
           element={
@@ -139,9 +190,11 @@ function App() {
               currentUser={currentUser}
               savedArticles={savedArticles}
               onDeleteArticle={(article) => {
-                setSavedArticles(
-                  savedArticles.filter((a) => a.title !== article.title)
+                const update = savedArticles.filter(
+                  (a) => a.title !== article.title
                 );
+                saveArticles(update);
+                setSavedArticles(update);
               }}
             />
           }
@@ -157,6 +210,16 @@ function App() {
           setIsRegisterOpen(true);
         }}
       />
+
+      <RegistrationSuccessModal
+        isOpen={isSuccessOpen}
+        onClose={() => setIsSuccessOpen(false)}
+        onSwitchToLogin={() => {
+          setIsSuccessOpen(false);
+          setIsLoginOpen(true);
+        }}
+      />
+
       <RegisterModal
         isOpen={isRegisterOpen}
         onClose={() => setIsRegisterOpen(false)}

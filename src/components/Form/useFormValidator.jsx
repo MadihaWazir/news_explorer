@@ -41,9 +41,10 @@ export default function useFormValidator(
 
   useEffect(() => {
     const allRequiredFilled = requiredFields.every(
-      (field) => values[field] && !errors[field].trim() !== ""
+      (field) => values[field] && !values[field].trim() !== ""
     );
     const noErrors = Object.values(errors).every((error) => !error);
+
     setIsValid(allRequiredFilled && noErrors);
   }, [values, errors, requiredFields]);
 
