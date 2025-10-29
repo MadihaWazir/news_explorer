@@ -1,6 +1,6 @@
 export function getUser() {
   const data = localStorage.getItem("currentUser");
-  return data ? JSON.parse(data) : { name: "User " };
+  return data ? JSON.parse(data) : null;
 }
 
 export function setUser(user) {
@@ -25,10 +25,4 @@ export function getSavedArticles() {
 
 export function saveArticles(article) {
   localStorage.setItem("savedArticles", JSON.stringify(article));
-}
-
-export function removeArticle(url) {
-  const current = getSavedArticles();
-  const updated = current.filter((article) => article.url !== url);
-  localStorage.setItem("savedArticles", JSON.stringify(updated));
 }
