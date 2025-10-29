@@ -62,7 +62,7 @@ function Header({
             onClick={(e) => e.stopPropagation()}
           >
             <div className="navigation__mobile-header">
-              <span className="navigation__mobile_title"></span>
+              <span className="navigation__mobile_title">NewsExplorer</span>
               <button
                 className="navigation__mobile_close"
                 onClick={CloseMobileMenu}

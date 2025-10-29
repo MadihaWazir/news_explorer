@@ -1,4 +1,3 @@
-import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Navigation.css";
 import logoutWhite from "../../images/logout-btn-white.svg";
@@ -34,7 +33,7 @@ function Navigation({
           } navigation__btn_user_theme_${theme}`}
           onClick={onLogout}
         >
-          {currentUser?.name || "User"}
+          {isMobile ? "Logout" : currentUser?.name || "User"}
           <img
             src={logoutIcon}
             alt="Logout Icon"
@@ -59,7 +58,7 @@ function Navigation({
 
   return (
     <ul
-      className={`navigation__menu navigation__menu_ttype${
+      className={`navigation__menu navigation__menu_type${
         isMobile ? "mobile" : "desktop"
       }`}
     >
