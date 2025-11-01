@@ -107,7 +107,7 @@ function App() {
     if (isSaved) {
       const articleWithKeyword = {
         ...article,
-        keyword: searchTerm || "General",
+        keyword: searchQuery || "General",
       };
 
       const updated = [...getSavedArticles(), articleWithKeyword];
@@ -128,7 +128,7 @@ function App() {
     setHasSearched(true);
     setSearchQuery(query);
 
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 10000));
 
     try {
       const fetchedArticles = await searchNews(query);

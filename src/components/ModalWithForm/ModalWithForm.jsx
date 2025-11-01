@@ -15,21 +15,19 @@ function ModalWithForm({
 }) {
   useEffect(() => {
     const handleEscape = (event) => {
-      if (event.key === "Escape") {
-        onClose();
-      }
+      if (event.key === "Escape") onClose();
+    };
 
-      if (isOpen) {
-        document.addEventListener("keydown", handleEscape);
-        document.body.classList.add("modal-open");
-      } else {
-        document.body.classList.remove("modal-open");
-      }
+    if (isOpen) {
+      document.addEventListener("keydown", handleEscape);
+      document.body.classList.add("modal-open");
+    } else {
+      document.body.classList.remove("modal-open");
+    }
 
-      return () => {
-        document.removeEventListener("keydown", handleEscape);
-        document.body.classList.remove("modal-open");
-      };
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+      document.body.classList.remove("modal-open");
     };
   }, [isOpen, onClose]);
 

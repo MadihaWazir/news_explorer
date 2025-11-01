@@ -1,7 +1,7 @@
-const newApiBaseUrl = import.meta.env.PROD
+const newsApiBaseUrl = import.meta.env.PROD
   ? "https://nomoreparties.co/news/v2/everything"
   : "https://newsapi.org/v2/everything";
-const API_KEY = import.meta.env.VITE_API_KEY;
+const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
 
 export const searchNews = async (query) => {
   if (!query.trim()) return [];
@@ -14,7 +14,7 @@ export const searchNews = async (query) => {
   const year = fromDate.getFullYear();
   const from = `${year}-${month}-${day}`;
 
-  const url = `${newApiBaseUrl}?q=${encodeURIComponent(
+  const url = `${newsApiBaseUrl}?q=${encodeURIComponent(
     query
   )}&from=${from}&sortBy=publishedAt&apiKey=${API_KEY}`;
 

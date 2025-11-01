@@ -20,7 +20,7 @@ function NewsCardList({
     ? articles
     : articles.slice(0, visibleCount);
 
-  if (articles.length > 0) {
+  if (articles.length === 0) {
     return <NotFound />;
   }
 

@@ -4,9 +4,9 @@ import React, { useState, useEffect } from "react";
 function NewsCard({
   article,
   isLoggedIn,
-  onSaveArticle,
-  onDeleteArticle,
-  isSavedNewsPage,
+  onSave,
+  onDelete,
+  isSavedNewsPage = false,
   savedArticles,
 }) {
   const [isSaved, setIsSaved] = useState(
@@ -37,15 +37,15 @@ function NewsCard({
     ? "news-card__delete-button"
     : `news-card__save-button ${isSaved ? "news-card__save-button_saved" : ""}`;
 
-  function handleSaveClick() {
+  function handleSaveClick(e) {
     e.preventDefault();
     e.stopPropagation();
     if (isSavedNewsPage) {
-      if (onDeleteArticle) onDeleteArticle(article);
+      if (onDelete) onDelete(article);
     } else {
       if (!isLoggedIn) return;
       setIsSaved((s) => !s);
-      if (onSaveArticle) onSaveArticle(article, !isSaved);
+      if (onSave) onSave(article, !isSaved);
     }
   }
 
@@ -53,13 +53,15 @@ function NewsCard({
     <article className="news-card">
       <div className="news-card__media">
         {article.urlToImage && !imageError ? (
-          <img
-            src={article.urlToImage}
-            alt={article.title}
-            className="news-card__image"
-            loading="lazy"
-            onError={() => setImageError(true)}
-          />
+          <a href={article.url} target="_blank" rel="noopener noreferrer">
+            <img
+              src={article.urlToImage}
+              alt={article.title}
+              className="news-card__image"
+              loading="lazy"
+              onError={() => setImageError(true)}
+            />
+          </a>
         ) : (
           <div className="news-card__placeholder">No image available</div>
         )}
@@ -94,7 +96,14 @@ function NewsCard({
 
       <div className="news-card__content">
         <p className="news-card__date">{formattedData}</p>
-        <h3 className="news-card__title">{article.title}</h3>
+        <a
+          href={article.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="news-card__title-link"
+        >
+          <h3 className="news-card__title">{article.title}</h3>
+        </a>
         <p className="news-card__description">{article.description}</p>
         <p className="news-card__source">{article.source?.name}</p>
       </div>

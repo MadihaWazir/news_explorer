@@ -16,6 +16,7 @@ export default function useFormValidator(
     setValues((prevValues) => ({ ...prevValues, [name]: value }));
 
     let error = "";
+
     if (name === "email") {
       if (!value) {
         error = "Email is required";
@@ -41,8 +42,9 @@ export default function useFormValidator(
 
   useEffect(() => {
     const allRequiredFilled = requiredFields.every(
-      (field) => values[field] && !values[field].trim() !== ""
+      (field) => values[field] && values[field].trim() !== ""
     );
+
     const noErrors = Object.values(errors).every((error) => !error);
 
     setIsValid(allRequiredFilled && noErrors);
