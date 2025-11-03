@@ -1,10 +1,10 @@
 # News Explorer
 
-##About The Project
+**About The Project**
 
 NewsExplorer is a responsive web application designed to deliver a streamlined experience for discovering and saving news content. Powered by a third-party news API, it enables users to search for articles on any topic of interest and securely save their favorites to a personal account for future access. The platform emphasizes an intuitive and consistent user experience across all devices, including desktops, tablets, and mobile phones.
 
-##Features
+**Features**
 
 -Keyword-based search for quick access to relevant news articles
 
@@ -16,13 +16,13 @@ NewsExplorer is a responsive web application designed to deliver a streamlined e
 
 -Real-time news updates powered by an external API
 
-##Technologies Used
+**Technologies Used**
 
 - **Frontend:** React, JavaScript, HTML5, CSS
 - **API Integration:** News API
 - **Styling:** Modern CSS techniques using Flexbox and Grid for responsive, adaptive layouts
 - **Version Control:** Git, GitHub
 
-## Live Demo
+## Live Demo :
 
 Check out: [News Explorer](https://MadihaWazir.github.io/news_explorer)
