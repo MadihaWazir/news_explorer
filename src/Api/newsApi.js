@@ -1,42 +1,41 @@
 const newsApiBaseUrl = import.meta.env.PROD
   ? "https://nomoreparties.co/news/v2/everything"
   : "https://newsapi.org/v2/everything";
-const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
 
 export const searchNews = async (query) => {
-  if (!query.trim()) return [];
+  const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
 
-  const fromDate = new Date();
-  fromDate.setDate(fromDate.getDate() - 7); // last 7 days
+  if (!API_KEY || API_KEY.trim() === "" || API_KEY === "YOUR_NEWS_API_KEY") {
+    console.error("Invalid API key");
+    return [];
+  }
 
-  const month = String(fromDate.getMonth() + 1).padStart(2, "0");
-  const day = String(fromDate.getDate()).padStart(2, "0");
-  const year = fromDate.getFullYear();
-  const from = `${year}-${month}-${day}`;
-
-  const url = `${newsApiBaseUrl}?q=${encodeURIComponent(
-    query
-  )}&from=${from}&sortBy=publishedAt&apiKey=${API_KEY}`;
-
+  console.log("API Key is present.");
+  const url = `${newsApiBaseUrl}?q=${query}&apiKey=${API_KEY}`;
   try {
     const response = await fetch(url);
+    console.log("Fetch response received.");
 
     if (!response.ok) {
-      console.log("Network response was not ok:", response.statusText);
+      console.error("Network response was not ok:", response.statusText);
+      let errorMessage = `HTTP error! Status: ${response.status}`;
+
+      try {
+        const errorData = await response.json();
+        if (errorData.message) {
+          errorMessage = errorData.message;
+        }
+      } catch (jsonError) {
+        console.error("Error parsing error response JSON:", jsonError);
+      }
       return [];
     }
 
     const data = await response.json();
 
-    const filteredArticles = (data.articles || []).filter(
-      (article) =>
-        article.title?.toLowerCase().includes(query.toLowerCase()) ||
-        article.description?.toLowerCase().includes(query.toLowerCase())
-    );
-
-    return filteredArticles;
+    return data.articles || [];
   } catch (error) {
-    console.error("Error fetching articles:", error);
+    console.error("Fetch error:", error);
     return [];
   }
 };
