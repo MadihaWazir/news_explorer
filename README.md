@@ -1,16 +1,28 @@
-# React + Vite
+# News Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+##About The Project
 
-Currently, two official plugins are available:
+NewsExplorer is a responsive web application designed to deliver a streamlined experience for discovering and saving news content. Powered by a third-party news API, it enables users to search for articles on any topic of interest and securely save their favorites to a personal account for future access. The platform emphasizes an intuitive and consistent user experience across all devices, including desktops, tablets, and mobile phones.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+##Features
 
-## React Compiler
+-Keyword-based search for quick access to relevant news articles
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+-Browsing of trending and up-to-date news from trusted sources
 
-## Expanding the ESLint configuration
+-Fully responsive design optimized for desktops, tablets, and mobile devices
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+-Clean, modern user interface focused on usability and clarity
+
+-Real-time news updates powered by an external API
+
+##Technologies Used
+
+- **Frontend:** React, JavaScript, HTML5, CSS
+- **API Integration:** News API
+- **Styling:** Modern CSS techniques using Flexbox and Grid for responsive, adaptive layouts
+- **Version Control:** Git, GitHub
+
+## Live Demo
+
+Check out: [News Explorer](https://MadihaWazir.github.io/news_explorer)
