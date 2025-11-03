@@ -1,9 +1,8 @@
-import React from "react";
 import "./RegisterModal.css";
 import useFormValidator from "../Form/useFormValidator";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-function RegisterModal({ isOpen, onClose, onRegister, switchToLogin }) {
+function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
   const { values, errors, handleChange, isValid } = useFormValidator({}, [
     "email",
     "password",
@@ -27,7 +26,7 @@ function RegisterModal({ isOpen, onClose, onRegister, switchToLogin }) {
       alternateTextContent={
         <>
           or{" "}
-          <span className="modal__link-text" onClick={switchToLogin}>
+          <span className="modal__link-text" onClick={onSwitchToLogin}>
             Sign In
           </span>
         </>
@@ -49,6 +48,7 @@ function RegisterModal({ isOpen, onClose, onRegister, switchToLogin }) {
           </span>
         )}
       </label>
+
       <label className="modal__label">
         Password
         <input
@@ -65,6 +65,7 @@ function RegisterModal({ isOpen, onClose, onRegister, switchToLogin }) {
           </span>
         )}
       </label>
+
       <label className="modal__label">
         Name
         <input
