@@ -1,9 +1,9 @@
-import React from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 function RegistrationSuccessModal({ isOpen, onClose, onSwitchToLogin }) {
   const handleLoginClick = (e) => {
     e.preventDefault();
+    onClose();
     onSwitchToLogin();
   };
 
