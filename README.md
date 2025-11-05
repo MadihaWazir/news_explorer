@@ -6,15 +6,15 @@ NewsExplorer is a responsive web application designed to deliver a streamlined e
 
 **Features**
 
--Keyword-based search for quick access to relevant news articles
+- Keyword-based search for quick access to relevant news articles
 
--Browsing of trending and up-to-date news from trusted sources
+- Browsing of trending and up-to-date news from trusted sources
 
--Fully responsive design optimized for desktops, tablets, and mobile devices
+- Fully responsive design optimized for desktops, tablets, and mobile devices
 
--Clean, modern user interface focused on usability and clarity
+- Clean, modern user interface focused on usability and clarity
 
--Real-time news updates powered by an external API
+- Real-time news updates powered by an external API
 
 **Technologies Used**
 
@@ -25,4 +25,4 @@ NewsExplorer is a responsive web application designed to deliver a streamlined e
 
 ## Live Demo :
 
-Check out: [News Explorer](https://MadihaWazir.github.io/news_explorer)
+Check out: [News Explorer](https://MadihaWazir.github.io/news_explorer/)
