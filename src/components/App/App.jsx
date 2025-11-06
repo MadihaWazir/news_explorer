@@ -142,7 +142,7 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/news_explorer/">
       <Header
         isloggedIn={!!currentUser}
         currentUser={currentUser}
