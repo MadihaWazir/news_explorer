@@ -25,4 +25,4 @@ NewsExplorer is a responsive web application designed to deliver a streamlined e
 
 ## Live Demo :
 
-Check out: [News Explorer](https://MadihaWazir.github.io/news_explorer/)
+Check out: [News Explorer](https://madihawazir.github.io/news_explorer/)
