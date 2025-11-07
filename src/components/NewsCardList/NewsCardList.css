@@ -21,7 +21,7 @@
   margin-top: 20px;
   margin-bottom: 0;
   width: 100%;
-  max-width: 288px;
+  max-width: 1232px;
 }
 
 .news-card-list__show-more-button {
@@ -88,5 +88,34 @@
     font-size: 32px;
     line-height: 38px;
     margin: 0 auto 32px auto;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .news-card-list {
+    padding: 24px 12px 12px 12px;
+  }
+
+  .news-card-list__container {
+    margin: 0 auto;
+  }
+
+  .news-card-list__show-more-button {
+    width: 100%;
+    max-width: 288px;
+    box-shadow: none;
+    margin-top: 16px;
+    margin-bottom: 24px;
+  }
+
+  .news-card-list__container {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    justify-content: center;
+    margin: 0;
+  }
+
+  .news-card-list__title {
+    display: none;
   }
 }
