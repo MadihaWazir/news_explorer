@@ -42,3 +42,9 @@
     font-size: 18px;
   }
 }
+
+@media screen and (max-width: 320px) {
+  .saved-news__sidebar-text {
+    display: none;
+  }
+}
