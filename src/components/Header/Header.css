@@ -109,11 +109,13 @@
   font-weight: 500;
   font-size: 18px;
   display: flex;
+
   line-height: 24px;
   background-color: transparent;
   border: 1px solid currentColor;
   border-radius: 100px;
   cursor: pointer;
+
   justify-content: center;
   padding: 16px 22px;
   align-items: center;
@@ -146,6 +148,20 @@
 
   .navigation__menu {
     display: none;
+  }
+}
+
+@media (min-width: 321px) and (max-width: 484px) {
+  .header {
+    padding: 18px 24px;
+  }
+
+  .header__logo {
+    font-size: 17px;
+  }
+
+  .header__menu-icon {
+    gap: 16px;
   }
 }
 

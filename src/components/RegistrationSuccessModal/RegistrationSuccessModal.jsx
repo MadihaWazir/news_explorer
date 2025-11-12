@@ -1,4 +1,5 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import "./RegistrationSuccessModal.css";
 
 function RegistrationSuccessModal({ isOpen, onClose, onSwitchToLogin }) {
   const handleLoginClick = (e) => {
@@ -11,7 +12,7 @@ function RegistrationSuccessModal({ isOpen, onClose, onSwitchToLogin }) {
     <ModalWithForm
       isOpen={isOpen}
       onClose={onClose}
-      title={"Registration Successful"}
+      title="Registration Successfully Completed!"
       onSubmit={handleLoginClick}
       submitButtonText=""
       isSubmitDisabled={false}

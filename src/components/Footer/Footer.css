@@ -92,6 +92,31 @@
   }
 }
 
+@media (min-width: 321px) and (max-width: 484px) {
+  .footer__container {
+    flex-direction: column;
+    padding: 20px 24px;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .footer__nav-links {
+    gap: 20px;
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .footer__social-icons {
+    gap: 16px;
+  }
+
+  .footer__copyright {
+    font-size: 15px;
+    width: 100%;
+    text-align: center;
+  }
+}
+
 @media screen and (max-width: 320px) {
   .footer__container {
     padding: 20px 16px 22px 16px;

@@ -18,12 +18,12 @@ export const searchNews = async (query) => {
 
     if (!response.ok) {
       console.error("Network response was not ok:", response.statusText);
-      let errorMessage = `HTTP error! Status: ${response.status}`;
+      console.error(`HTTP error! Status: ${response.status}`);
 
       try {
         const errorData = await response.json();
         if (errorData.message) {
-          errorMessage = errorData.message;
+          console.error("Error message from API:", errorData.message);
         }
       } catch (jsonError) {
         console.error("Error parsing error response JSON:", jsonError);

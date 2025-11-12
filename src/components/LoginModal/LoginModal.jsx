@@ -41,6 +41,7 @@ function LoginModal({ isOpen, onClose, onLogin, onSwitchToRegister }) {
           value={values.email || ""}
           onChange={handleChange}
           required
+          placeholder="Enter email"
         />
         {errors.email && (
           <span className="modal__error-message modal__error-message_visible">
@@ -58,6 +59,7 @@ function LoginModal({ isOpen, onClose, onLogin, onSwitchToRegister }) {
           value={values.password || ""}
           onChange={handleChange}
           required
+          placeholder="Enter password"
         />
         {errors.password && (
           <span className="modal__error">{errors.password}</span>

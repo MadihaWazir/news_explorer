@@ -54,10 +54,17 @@
 .navigation__btn_user_desktop,
 .navigation__btn_signin_desktop {
   padding: 8px 16px;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
+  display: flex;
+  line-height: 24px;
+  font-size: 18px;
+  letter-spacing: 0px;
+  align-items: center;
+  justify-content: center;
   border-radius: 8px;
   border: none;
+  gap: 12px;
 }
 
 .navigation__btn_user_theme_light,
@@ -71,6 +78,9 @@
   border-width: 1px;
   border-radius: 100px;
   border: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .navigation__btn_user_theme_dark,
@@ -84,6 +94,9 @@
   border-width: 1px;
   border-radius: 100px;
   border: 1px solid #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .navigation__logout_icon {
@@ -117,6 +130,9 @@
     border-width: 1px;
     background-color: transparent;
     color: #1a1b22;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .navigation__btn_user_theme_dark,
@@ -130,6 +146,9 @@
     left: 1160px;
     background-color: transparent;
     color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .navigation__link_theme_dark.navigation__link_active::after {
@@ -152,6 +171,36 @@
     width: 130px;
     height: 3px;
     background-color: black;
+  }
+}
+
+@media (min-width: 321px) and (max-width: 484px) {
+  .navigation__menu {
+    gap: 24px;
+  }
+
+  .navigation__link {
+    font-size: 15px;
+  }
+
+  .navigation__link_theme_dark.navigation__link_active::after,
+  .navigation__link_theme_light.navigation__link_active::after {
+    bottom: -38px;
+  }
+
+  .navigation__btn_user_desktop,
+  .navigation__link_saved {
+    display: none;
+  }
+
+  .navigation__btn_user_theme_light,
+  .navigation__btn_signin_theme_light,
+  .navigation__btn_user_theme_dark,
+  .navigation__btn_signin_theme_dark {
+    width: 140px;
+    height: 44px;
+    font-size: 15px;
+    padding: 10px 18px;
   }
 }
 

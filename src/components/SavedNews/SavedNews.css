@@ -43,6 +43,20 @@
   }
 }
 
+@media (min-width: 321px) and (max-width: 484px) {
+  .saved-news {
+    padding: 0;
+  }
+
+  .saved-news .news-card-list {
+    padding: 40px 24px;
+  }
+
+  .saved-news__no-articles {
+    margin-top: 40px;
+  }
+}
+
 @media screen and (max-width: 320px) {
   .saved-news__sidebar-text {
     display: none;

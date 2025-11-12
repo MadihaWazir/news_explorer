@@ -39,6 +39,7 @@ function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
           type="email"
           name="email"
           required
+          placeholder="Enter email"
           value={values.email || ""}
           onChange={handleChange}
         />
@@ -56,6 +57,7 @@ function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
           type="password"
           name="password"
           required
+          placeholder="Enter password"
           value={values.password || ""}
           onChange={handleChange}
         />
@@ -67,12 +69,13 @@ function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
       </label>
 
       <label className="modal__label">
-        Name
+        Username
         <input
           className="modal__input"
           type="text"
           name="name"
           required
+          placeholder="Enter username"
           value={values.name || ""}
           onChange={handleChange}
         />
