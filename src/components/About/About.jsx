@@ -7,7 +7,11 @@ function About() {
     <section className="about">
       <div className="about__content">
         <div className="about__image-container">
-          <img src={authorImage} alt="Author" className="about__image" />
+          <img
+            src={authorImage}
+            alt="Author profile"
+            className="about__image"
+          />
         </div>
 
         <div className="about__text-container">
