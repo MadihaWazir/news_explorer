@@ -178,7 +178,6 @@ function App() {
                 </section>
               )}
               <About />
-              <Footer />
             </>
           }
         />
@@ -200,6 +199,7 @@ function App() {
           }
         />
       </Routes>
+      <Footer />
 
       <LoginModal
         isOpen={isLoginOpen}
