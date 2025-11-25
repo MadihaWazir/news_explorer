@@ -1,4 +1,6 @@
 .main {
+  max-width: 100%;
+  box-sizing: border-box;
   position: relative;
   width: 100%;
   margin: 0;
@@ -11,6 +13,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   max-width: 608px;
+  width: 100%;
   padding-top: 80px;
 }
 
@@ -106,13 +109,18 @@
   }
 
   .main__title {
+    font-family: "Roboto Slab", Arial, sans-serif;
     font-size: 36px;
+    font-weight: 400;
     line-height: 52px;
     text-align: left;
     max-width: 385px;
   }
 
   .main__subtitle {
+    font-family: "Roboto", Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
     text-align: left;
     margin-top: 16px;
   }
@@ -123,6 +131,9 @@
   }
 
   .main__search-button {
+    font-family: "Roboto", Arial, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
     width: 160px;
     font-size: 16px;
   }

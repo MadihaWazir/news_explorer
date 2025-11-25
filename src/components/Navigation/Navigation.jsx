@@ -58,7 +58,7 @@ function Navigation({
 
   return (
     <ul
-      className={`navigation__menu navigation__menu_type${
+      className={`navigation__menu navigation__menu_type_${
         isMobile ? "mobile" : "desktop"
       }`}
     >

@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
@@ -155,7 +156,7 @@ function App() {
         <Route
           path="/"
           element={
-            <>
+            <main>
               <Main onSearch={handleSearch} isLoggedIn={!!currentUser} />
               {hasSearched && (
                 <section className="results-section">
@@ -178,24 +179,26 @@ function App() {
                 </section>
               )}
               <About />
-            </>
+            </main>
           }
         />
 
         <Route
           path="/saved-news"
           element={
-            <SavedNews
-              currentUser={currentUser}
-              savedArticles={savedArticles}
-              onDeleteArticle={(article) => {
-                const update = savedArticles.filter(
-                  (a) => a.title !== article.title
-                );
-                saveArticles(update);
-                setSavedArticles(update);
-              }}
-            />
+            <main>
+              <SavedNews
+                currentUser={currentUser}
+                savedArticles={savedArticles}
+                onDeleteArticle={(article) => {
+                  const update = savedArticles.filter(
+                    (a) => a.title !== article.title
+                  );
+                  saveArticles(update);
+                  setSavedArticles(update);
+                }}
+              />
+            </main>
           }
         />
       </Routes>

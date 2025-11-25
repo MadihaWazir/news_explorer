@@ -1,5 +1,6 @@
 import "./Main.css";
-import { useState } from "react";
+import React, { useState } from "react";
+import mainPic from "../../images/main-pic-min.jpg";
 
 function Main({ onSearch }) {
   const [searchInput, setSearchInput] = useState("");
@@ -12,8 +13,11 @@ function Main({ onSearch }) {
   };
 
   return (
-    <main className="main">
-      <div className="main__hook">
+    <section className="main">
+      <div
+        className="main__hook"
+        style={{ backgroundImage: `url(${mainPic})` }}
+      >
         <div className="main__content">
           <h1 className="main__title">What's going on in the world?</h1>
           <p className="main__subtitle">
@@ -35,7 +39,7 @@ function Main({ onSearch }) {
           </form>
         </div>
       </div>
-    </main>
+    </section>
   );
 }
 

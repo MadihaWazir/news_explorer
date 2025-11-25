@@ -76,7 +76,7 @@ function Header({
                 onLogout={handleLogoutAndCloseMenu}
                 onSignInClick={handleSignInAndCloseMenu}
                 isMobile={true}
-                handleCloseMobileMenu={CloseMobileMenu}
+                CloseMobileMenu={CloseMobileMenu}
                 isSavedNewsPage={isSavedNewsPage}
               />
             </nav>
