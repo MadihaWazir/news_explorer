@@ -1,7 +1,6 @@
 import React from "react";
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader.jsx";
 import NewsCardList from "../NewsCardList/NewsCardList.jsx";
-import Footer from "../Footer/Footer.jsx";
 import "./SavedNews.css";
 
 function SavedNews({ currentUser, savedArticles, onDeleteArticle }) {
@@ -12,9 +11,9 @@ function SavedNews({ currentUser, savedArticles, onDeleteArticle }) {
 
   return (
     <section className="saved-news">
-      <div className="saved-news__sidebar-text">Saved Articles</div>
+      <div className="saved-news__sidebar-text"></div>
       <SavedNewsHeader
-        savedArticles={savedArticles.length}
+        savedArticlesCount={savedArticles.length}
         currentUser={currentUser}
         keywords={uniqueKeywords}
       />
@@ -30,11 +29,10 @@ function SavedNews({ currentUser, savedArticles, onDeleteArticle }) {
       ) : (
         <div className="saved-news__no-articles">
           <h2 className="saved-news__no-articles-title">
-            You have no saved articles
+            No saved articles yet
           </h2>
         </div>
       )}
-      <Footer />
     </section>
   );
 }

@@ -35,7 +35,7 @@ function App() {
 
   const [isLoading, setIsLoading] = useState(false);
   const [articles, setArticles] = useState([]);
-  const [savedArticles, setSavedArticles] = useState(getSavedArticles());
+  const [savedArticles, setSavedArticles] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [hasSearched, setHasSearched] = useState(false);
 
@@ -98,8 +98,6 @@ function App() {
   }
 
   function handleSaveArticle(article, isSaved) {
-    console.log("handleSaveArticle called with:", { article, isSaved });
-
     if (!currentUser) {
       setIsLoginOpen(true);
       return;

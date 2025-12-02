@@ -66,7 +66,7 @@
   overflow-y: auto;
 }
 
-.header__mobile-overlay_open .header__mobile-overlay {
+.header__mobile-menu-open .header__mobile-overlay {
   visibility: visible;
   opacity: 1;
 }
@@ -160,8 +160,14 @@
     font-size: 17px;
   }
 
-  .header__menu-icon {
+  .navigation__menu {
     gap: 16px;
+  }
+
+  .navigation__button_user_desktop,
+  .navigation__signin-button_desktop {
+    padding: 12px 18px;
+    font-size: 16px;
   }
 }
 
