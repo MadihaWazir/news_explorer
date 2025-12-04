@@ -33,7 +33,7 @@ function Header({
   return (
     <header
       className={`header ${
-        isSavedNewsPage ? "header_theme_dark" : "header_theme_light"
+        isSavedNewsPage ? "header_theme_light" : "header_theme_dark"
       } ${isMobileMenuOpen ? "header_mobile-menu-open" : ""}`}
     >
       <Link to="/" className="header__logo" onClick={CloseMobileMenu}>

@@ -176,16 +176,20 @@
 
 @media (min-width: 321px) and (max-width: 484px) {
   .navigation__menu {
-    gap: 24px;
+    gap: 16px;
+    display: flex;
+    align-items: center;
   }
 
   .navigation__link {
     font-size: 15px;
+    padding: 8px 4px;
   }
 
   .navigation__link_theme_dark.navigation__link_active::after,
   .navigation__link_theme_light.navigation__link_active::after {
     bottom: -38px;
+    width: 60px;
   }
 
   .navigation__btn_user_desktop,
@@ -197,10 +201,24 @@
   .navigation__btn_signin_theme_light,
   .navigation__btn_user_theme_dark,
   .navigation__btn_signin_theme_dark {
-    width: 140px;
-    height: 44px;
-    font-size: 15px;
-    padding: 10px 18px;
+    width: 100px;
+    height: 40px;
+    font-size: 14px;
+    padding: 8px 12px;
+    position: static;
+    top: auto;
+    left: auto;
+    margin: 0;
+    flex-shrink: 0;
+    white-space: nowrap;
+    min-width: 90px;
+    max-width: 110px;
+    box-sizing: border-box;
+  }
+
+  .navigation__btn_signin_theme_light,
+  .navigation__btn_signin_theme_dark {
+    padding: 6px 10px;
   }
 }
 
